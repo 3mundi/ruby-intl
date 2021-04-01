@@ -5,7 +5,6 @@ require 'execjs'
 
 module Javascript
   module Intl
-
     @@cache = false
 
     def self.cache=(value)
@@ -22,14 +21,20 @@ module Javascript
 
     def self.cached(*args)
       return storage[args.to_json] ||= yield if cache
+
       yield
+    end
+
+    CTX = ExecJS.compile("")
+
+    def self.get_canonical_locales(locales)
+      cached(self, :getCanonicalLocales, locales) { CTX.call('Intl.getCanonicalLocales', locales, bare: true) }
     end
 
     # def self.cached(*args)
     #   return JSON.parse(storage[args.to_json] ||= yield.to_json) if cache
     #   yield
     # end
-
 
     class Error < StandardError; end
     class DateTimeFormat
@@ -94,7 +99,7 @@ module Javascript
       end
 
       def resolved_options
-        Javascript::Intl.cached(self.class, @locale, @options, :resolved_options, ) { CTX.call('DateTimeFormat_resolvedOptions', @locale, @options, bare: true) }
+        Javascript::Intl.cached(self.class, @locale, @options, :resolved_options) { CTX.call('DateTimeFormat_resolvedOptions', @locale, @options, bare: true) }
       end
     end
 
@@ -129,7 +134,7 @@ module Javascript
       end
 
       def resolved_options
-        Javascript::Intl.cached(self.class, @locale, @options, :resolved_options, ) { CTX.call('RelativeTimeFormat_resolvedOptions', @locale, @options, bare: true) }
+        Javascript::Intl.cached(self.class, @locale, @options, :resolved_options) { CTX.call('RelativeTimeFormat_resolvedOptions', @locale, @options, bare: true) }
       end
     end
   end

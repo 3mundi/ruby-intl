@@ -12,3 +12,13 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+CHECK_PARTS = false
+
+require 'yaml'
+Javascript::Intl.cache = true
+Javascript::Intl.storage.update(YAML.load(File.read('storage.yml'))) if File.exist?('storage.yml')
+
+RSpec.configure do |config|
+  config.after(:all) { File.write('storage.yml', Javascript::Intl.storage.to_yaml) }
+end
