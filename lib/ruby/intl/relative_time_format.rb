@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Ruby
   module Intl
     DATE_FIELDS = {}
@@ -36,7 +37,7 @@ module Ruby
 
       def resolved_options
         return default_resolved_options.merge(@options).transform_keys(&:to_s)
-        Javascript::Intl::RelativeTimeFormat.new(@locale, @options).resolved_options
+        # Javascript::Intl::RelativeTimeFormat.new(@locale, @options).resolved_options
       end
 
       def default_resolved_options
@@ -58,12 +59,53 @@ module Ruby
       end
 
       def format_relative_type(value_abs, cldr)
-        if value_abs == 1 && cldr['relativeTimePattern-count-one']
-          cldr['relativeTimePattern-count-one'].gsub('{0}', value_abs.to_s)
+
+        # plural_rule = value_abs.localize(@locale).plural_rule
+        plural_rule = plural_rule_for(value_abs)
+        key = "relativeTimePattern-count-#{plural_rule}"
+
+        if cldr[key]
+          cldr[key].gsub('{0}', value_abs.to_s)
         else
           cldr['relativeTimePattern-count-other'].gsub('{0}', value_abs.to_s)
         end
       end
+
+
+      # try: https://github.com/camertron/cldr-plurals-runtime-rb
+      # exported by https://github.com/ruby-i18n/ruby-cldr
+      PLURAL_RULE = {
+        "ca" => lambda { |n| n = n.respond_to?(:abs) ? n.abs : ((m = n.to_s)[0] == "-" ? m[1,m.length] : m); (n.to_i == 1 && ((v = n.to_s.split(".")[1]) ? v.length : 0) == 0) ? :one : :other },
+        "de" => lambda { |n| n = n.respond_to?(:abs) ? n.abs : ((m = n.to_s)[0] == "-" ? m[1,m.length] : m); (n.to_i == 1 && ((v = n.to_s.split(".")[1]) ? v.length : 0) == 0) ? :one : :other },
+        "en" => lambda { |n| n = n.respond_to?(:abs) ? n.abs : ((m = n.to_s)[0] == "-" ? m[1,m.length] : m); (n.to_i == 1 && ((v = n.to_s.split(".")[1]) ? v.length : 0) == 0) ? :one : :other },
+        "es" => lambda { |n| n = n.respond_to?(:abs) ? n.abs : ((m = n.to_s)[0] == "-" ? m[1,m.length] : m); n.to_f == 1 ? :one : :other },
+        "fr" => lambda { |n| n = n.respond_to?(:abs) ? n.abs : ((m = n.to_s)[0] == "-" ? m[1,m.length] : m); [0, 1].include?(n.to_i) ? :one : :other },
+        "ja" => lambda { |n| n = n.respond_to?(:abs) ? n.abs : ((m = n.to_s)[0] == "-" ? m[1,m.length] : m); :other },
+        "pt" => lambda { |n| n = n.respond_to?(:abs) ? n.abs : ((m = n.to_s)[0] == "-" ? m[1,m.length] : m); (0..1).include?(n.to_i) ? :one : :other },
+        "pt-PT" => lambda { |n| n = n.respond_to?(:abs) ? n.abs : ((m = n.to_s)[0] == "-" ? m[1,m.length] : m); (n.to_i == 1 && ((v = n.to_s.split(".")[1]) ? v.length : 0) == 0) ? :one : :other },
+      }
+
+      def plural_rule_for(value)
+        PLURAL_RULE.fetch(@locale) { PLURAL_RULE.fetch(@lang) }.(value)
+      end
     end
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

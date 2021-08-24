@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe Ruby::Intl do
   it 'has a version number' do
     expect(Ruby::Intl::VERSION).not_to be nil

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'ruby/intl/version'
 
 require 'date'
@@ -72,7 +73,7 @@ module Javascript
       def date_time_to_a(datetime)
         [
           datetime.year,
-          datetime.month,
+          datetime.month - 1,
           datetime.day,
           datetime.hour,
           datetime.minute,
@@ -109,11 +110,9 @@ module Javascript
           return (new Intl.RelativeTimeFormat(locales, options)).format(value, units)
         };
 
-
         const RelativeTimeFormat_formatToParts = function(locales, options, value, units) {
           return (new Intl.RelativeTimeFormat(locales, options)).formatToParts(value, units)
         };
-
 
         const RelativeTimeFormat_resolvedOptions = function(locales, options) {
           return (new Intl.RelativeTimeFormat(locales, options)).resolvedOptions()

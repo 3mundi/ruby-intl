@@ -1,0 +1,115 @@
+---
+ca:
+  yMd: d/M/y
+  MMMd:
+  EEEEHHmm:
+  yMMMMEEEEd:
+  yMMMMEEEEdHHmm:
+  EMMMddy:
+  yMMMMddHHmm:
+  EEEEhhmm:
+  yMMMMEEEEdhhmm:
+  yMMMMdhhmm:
+  MMMMEEEEd: EEEE, d MMMM
+  MMMMEEEEdHHmm: EEEE, d MMMM, HH:mm
+de:
+  yMMMMd: d. MMMM y
+  MMMd: d. MMM
+  EEEEHHmm: EEEE, HH:mm
+  MMMMEEEEd: EEEE, d. MMMM
+  yMMMMEEEEd: EEEE, d. MMMM y
+  yMMMMEEEEdHHmm: EEEE, d. MMMM y, HH:mm
+  MMMMEEEEdHHmm: EEEE, d. MMMM, HH:mm
+  EMMMddy: E, dd. MMM y
+  yMMMMddHHmm: dd. MMMM y, HH:mm
+  yMd: d.M.y
+  EEEEhhmm:
+  yMMMMEEEEdhhmm:
+  yMMMMdhhmm:
+en:
+  yMMMMd: MMMM d, y
+  MMMd: MMM d
+  EEEEHHmm:
+  MMMMEEEEd: EEEE, MMMM d
+  yMMMMEEEEd: EEEE, MMMM d, y
+  yMMMMEEEEdHHmm:
+  EMMMddy: E, MMM dd, y
+  yMMMMddHHmm:
+  yMd: M/d/y
+  EEEEhhmm: EEEE hh:mm a
+  yMMMMEEEEdhhmm: EEEE, MMMM dd, y, hh:mm a
+  yMMMMdhhmm: MMMM dd, y, hh:mm a
+  yMMMMEEEEdhhmma: EEEE, MMMM d, y, hh:mm a
+  MMMMEEEEdhhmma: EEEE, MMMM d, hh:mm a
+en-AU:
+  yMMdd: dd/MM/y
+  MMMMEEEEdhhmma: EEEE, d MMMM, hh:mm a
+  MMMMEEEEd: EEEE, d MMMM
+en-CA:
+  yMMdd: y-MM-dd
+en-GB:
+  yMMdd: dd/MM/y
+  MMMMEEEEdHHmm: EEEE, d MMMM, HH:mm
+  MMMMEEEEd: EEEE, d MMMM
+es:
+  yMMMMd: d 'de' MMMM 'de' y
+  MMMd:
+  EEEEHHmm:
+  MMMMEEEEd: EEEE, d 'de' MMMM
+  EMMMddy:
+  yMMMMddHHmm:
+  yMd: d/M/y
+  EEEEhhmm:
+  yMMMMEEEEdhhmm:
+  yMMMMdhhmm:
+  yMEEEEEdkmGGGGG: EEEEE, d m y GGGGG
+  yMMMMEEEEdHHmm: EEEE, d 'de' MMMM 'de' y HH:mm
+  yMMMMEEEEd: EEEE, d 'de' MMMM 'de' y
+  MMMMEEEEdHHmm: EEEE, d 'de' MMMM HH:mm
+fr:
+  yMMdd: dd/MM/y
+  yMMMMd:
+  MMMd:
+  EEEEHHmm:
+  MMMMEEEEd: EEEE d MMMM
+  yMMMMEEEEd:
+  yMMMMEEEEdHHmm:
+  EMMMddy:
+  yMMMMddHHmm:
+  yMd:
+  EEEEhhmm:
+  yMMMMEEEEdhhmm:
+  yMMMMdhhmm:
+  MMMMEEEEdHHmm: EEEE d MMMM 'à' HH:mm
+ja:
+  yMd: y/M/d
+  yMMMMd:
+  MMMd:
+  EEEEHHmm:
+  yMMMMEEEEd:
+  yMMMMEEEEdHHmm:
+  EMMMddy:
+  yMMMMddHHmm:
+  EEEEhhmm:
+  yMMMMEEEEdhhmm:
+  yMMMMdhhmm:
+  MEEEEdHHmm: MMMMd'日'EEEE HH:mm
+  MEEEEd: MMMMd'日'EEEE
+pt:
+  yMMdd: dd/MM/y
+  yMMMMd:
+  MMMd:
+  EEEEHHmm:
+  MMMMEEEEd:
+  yMMMMEEEEd:
+  yMMMMEEEEdHHmm:
+  EMMMddy:
+  yMMMMddHHmm:
+  yMd:
+  EEEEhhmm:
+  yMMMMEEEEdhhmm:
+  yMMMMdhhmm:
+  MMMMEEEEd: EEEE, d 'de' MMMM
+  MMMMEEEEdHHmm: EEEE, d 'de' MMMM HH:mm
+pt-PT:
+  MMMMEEEEdHHmm: EEEE, d 'de' MMMM, HH:mm

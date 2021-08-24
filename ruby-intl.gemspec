@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'lib/ruby/intl/version'
 
 Gem::Specification.new do |spec|
@@ -28,4 +29,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'execjs'
+  # spec.add_runtime_dependency 'twitter_cldr'
+  spec.add_runtime_dependency 'ruby-cldr'
 end
